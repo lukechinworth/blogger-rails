@@ -2,9 +2,16 @@
   <div class="post">
     <div class="post-header">
       <h2><%= @post.title %></h2>
-      <p><%= @post.created_at.to_date %></p>
-      <div class="text-right post-tools">
-        <%= link_to "Edit", edit_post_path(@post) %>
+      <div class="row">
+        <div class="post-date col-xs-4">
+          <p><%= @post.created_at.to_date %></p>
+        </div>
+        <div class="text-right post-tools col-xs-8">
+          <ul class="list-unstyled list-inline">
+            <li><%= link_to "Edit", edit_post_path(@post) %></li>
+            <li><%= link_to "Delete", post_path(@post), data: {confirm: "Are you sure?", method: "delete" } %></li>
+          </ul>
+        </div>
       </div>
     </div>
 
