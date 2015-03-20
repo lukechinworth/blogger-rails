@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <h1 class="site-title text-center"><%= link_to "Blogger", posts_path %></h1>
+    <nav>
+      <ul class="list-unstyled list-inline text-center">
+        <li><%= link_to "Home", posts_path %></li>
+        <li><%= link_to "New post", new_post_path %></li>
+      </ul>
+    </nav>
+    <%= yield %>
+  </div>
 </body>
 </html>
