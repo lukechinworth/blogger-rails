@@ -15,8 +15,10 @@
         <li><%= link_to "New post", new_post_path %></li>
       </ul>
     </nav>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
+    <div class="col-xs-12">
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
     <%= yield %>
   </div>
 </body>
