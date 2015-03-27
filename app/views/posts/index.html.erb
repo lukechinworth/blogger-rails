@@ -4,7 +4,7 @@
     <% @posts.sort_by(&:created_at).reverse.each do |post| %>
       <div class="post-list-item">
         <p class="post-list-title"><%= link_to post.title, post_path(post) %></p>
-        <p class="post-list-author">By <em><%= post.user.email %></em></p>
+        <p class="post-list-author">By <em><%= post.user.username %></em></p>
       </div>
     <% end %>
   </div>
