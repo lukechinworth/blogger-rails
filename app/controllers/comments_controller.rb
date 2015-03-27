@@ -5,8 +5,10 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @post = Post.find(params[:post_id])
-    @post.comments.new(comment_params)
+    @comment = @post.comments.new(comment_params)
+    @comment.user_id = @user.id
     if @post.save
       flash[:notice] = "Comment posted."
       redirect_to post_path(@post)
