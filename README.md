@@ -13,6 +13,7 @@ Setup:
 * Run rake db:migrate
 * Run rails server
 * Direct your browser to localhost:3000
+* Or, just hit the link above, right under the repo name, to go to the active site.
 
 Copyright
 ---------
