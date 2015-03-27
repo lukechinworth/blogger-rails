@@ -11,3 +11,17 @@
 .post-details {
   font-size: .8em;
 }
+
+.post-list {
+  font-family: serif;
+}
+
+.post-list-item {
+  padding-top: 3px;
+  border-top: 1px solid lightgray;
+}
+
+.post-list-title {
+  font-size: 1.3em;
+  margin-bottom: 0;
+}
