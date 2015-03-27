@@ -12,16 +12,16 @@
   font-size: .8em;
 }
 
-.post-list {
+.activity-list {
   font-family: serif;
 }
 
-.post-list-item {
+.activity-list-item {
   padding-top: 3px;
   border-top: 1px solid lightgray;
 }
 
-.post-list-title {
+.item-title {
   font-size: 1.3em;
   margin-bottom: 0;
 }
