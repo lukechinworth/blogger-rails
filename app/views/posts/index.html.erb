@@ -1,11 +1,13 @@
-<div class="col-xs-6">
-<h4>All Posts</h4>
-  <div class="activity-list">
-    <% @posts.sort_by(&:created_at).reverse.each do |post| %>
-      <div class="activity-list-item">
-        <p class="item-title"><%= link_to post.title, post_path(post) %></p>
-        <p class="item-author">By <em><%= post.user.username %></em></p>
-      </div>
-    <% end %>
+<% if @posts.any? %>
+  <div class="col-xs-6">
+  <h4>All Posts</h4>
+    <div class="activity-list">
+      <% @posts.sort_by(&:created_at).reverse.each do |post| %>
+        <div class="activity-list-item">
+          <p class="item-title"><%= link_to post.title, post_path(post) %></p>
+          <p class="item-author">By <em><%= post.user.username %></em></p>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>

@@ -48,6 +48,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'pry'
+  gem 'factory_girl_rails'
 end
 
 group :production do
