@@ -8,8 +8,16 @@
   margin-bottom: 1em;
 }
 
+.post-title {
+  margin-top: 10px;
+}
+
 .post-details {
   font-size: .8em;
+}
+
+.post-body {
+  font-family: serif;
 }
 
 .activity-list {
@@ -21,7 +29,21 @@
   border-top: 1px solid lightgray;
 }
 
+.item-description {
+  margin-bottom: 0px;
+}
+
+.item-type {
+  text-transform: uppercase;
+  font-size: .75em;
+}
+
 .item-title {
   font-size: 1.3em;
   margin-bottom: 0;
+}
+
+
+.item-text {
+  margin-bottom: 0px;
 }

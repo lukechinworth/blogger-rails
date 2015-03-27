@@ -10,9 +10,9 @@
   <div class="container">
     <h1 class="site-title text-center"><%= link_to "Blogger", posts_path %></h1>
     <div class="session-options">
-      <ul class="list-unstyled list-inline text-right">
+      <ul class="list-unstyled list-inline text-center">
         <% if user_signed_in? %>
-          <li>Welcome <%= link_to current_user.username, user_path(current_user) %></li>
+          <li>Welcome <strong><%= link_to current_user.username, user_path(current_user) %></strong></li>
           <li><%= link_to "New post", new_post_path %></li>
           <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

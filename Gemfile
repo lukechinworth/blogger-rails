@@ -47,6 +47,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'pry'
 end
 
 group :production do
