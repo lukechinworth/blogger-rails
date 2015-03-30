@@ -9,9 +9,12 @@ FactoryGirl.define do
   factory :post do
     title 'title'
     body 'body'
+    user
   end
 
   factory :comment do
     body 'body'
+    post
+    user
   end
 end

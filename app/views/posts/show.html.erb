@@ -46,7 +46,11 @@
       </div>
     <% end %>
   </div>
-  <div class="new-comment">
-    <%= link_to "Add comment", new_post_comment_path(@post) %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="new-comment">
+      <%= link_to "Add comment", new_post_comment_path(@post) %>
+    </div>
+  <% else %>
+      <%= link_to "Login to comment", new_user_session_path %>
+  <% end %>
 </div>

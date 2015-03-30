@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe "the add a post process" do
   it "adds a new post" do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
     visit posts_path
     click_on 'New post'
     fill_in 'Title', with: 'test post'
@@ -11,6 +13,8 @@ describe "the add a post process" do
   end
 
   it "fails to add a new post if title or body field left empty" do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
     visit posts_path
     click_on 'New post'
     fill_in 'Title', with: 'test post'

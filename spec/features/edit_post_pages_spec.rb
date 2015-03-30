@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe "the edit a post process" do
-  post = Post.create(title: "test", body: "test body")
-  
+    
   it "edits a post" do
+    post = FactoryGirl.create(:post)
+    login_as(post.user, scope: :user)
     visit post_path(post)
     click_on 'Edit'
     fill_in 'Body', with: 'test body (updated)'
@@ -12,6 +13,8 @@ describe "the edit a post process" do
   end
 
   it "errors if a post element is changed to an empty string" do
+    post = FactoryGirl.create(:post)
+    login_as(post.user, scope: :user)
     visit post_path(post)
     click_on 'Edit'
     fill_in 'Body', with: ''

@@ -2,8 +2,10 @@ require 'rails_helper'
 
 describe "the edit a comment process" do
   it "edits a comment" do
-    post = Post.create(title: "test", body: "test body")
-    comment = post.comments.create(body: "comment text")
+    user = FactoryGirl.create(:user)
+    post = FactoryGirl.create(:post, user: user)
+    comment = FactoryGirl.create(:comment, user: user, post: post)
+    login_as(user, scope: :user)
     visit post_path(post)
     within("div.comments") do
       click_on 'Edit'
@@ -14,8 +16,10 @@ describe "the edit a comment process" do
   end
 
   it "errors if comment edited to empty string" do
-    post = Post.create(title: "test", body: "test body")
-    comment = post.comments.create(body: "comment text")
+    user = FactoryGirl.create(:user)
+    post = FactoryGirl.create(:post, user: user)
+    comment = FactoryGirl.create(:comment, user: user, post: post)
+    login_as(user, scope: :user)
     visit post_path(post)
     within("div.comments") do
       click_on 'Edit'
