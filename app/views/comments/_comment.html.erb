@@ -1,4 +1,4 @@
-<div class="comment">
+<div class="comment" id="comment-<%= comment.id %>">
   <div class="row post-details">
     <div class="post-date col-xs-8">
       <p><em><%= comment.user.username %></em> | <%= comment.created_at.to_date %></p>
@@ -6,11 +6,13 @@
     <% if @post.user == current_user %>
     <div class="text-right post-tools col-xs-4">
       <ul class="list-unstyled list-inline">
-        <li><%= link_to "Edit", edit_post_comment_path(@post, comment) %></li>
+        <li><%= link_to "Edit", edit_post_comment_path(@post, comment), remote: true %></li>
         <li><%= link_to "Delete", post_comment_path(@post, comment), data: {confirm: "Are you sure?", method: "delete" } %></li>
       </ul>
     </div>
     <% end %>
   </div>
-  <%= comment.body %>
+  <div class="comment-body" id="comment-<%= comment.id %>-body">
+    <%= comment.body %>
+  </div>
 </div>

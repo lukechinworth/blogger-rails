@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "the edit a post process" do
-    
+describe "the edit a post process", js:true do
+
   it "edits a post" do
     post = FactoryGirl.create(:post)
     login_as(post.user, scope: :user)

@@ -24,7 +24,7 @@ describe "the edit a comment process", js: true do
     within("div#comments") do
       click_on 'Edit'
     end
-    fill_in 'Body', with: ''
+    fill_in 'body', with: ''
     click_on 'Post'
     expect(page).to have_content 'Comment failed to update'
   end

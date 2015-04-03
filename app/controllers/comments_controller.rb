@@ -35,10 +35,13 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
       flash[:notice] = "Comment updated."
-      redirect_to post_path(@post)
+      response do |format|
+        format.html { redirect_to post_path(@post) }
+        format.js
+      end
     else
       flash[:alert] = "Comment failed to update."
-      redirect_to :back
+      redirect_to post_path(@post)
     end
 
   end
