@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'unobtrusive_flash', '>=3'
+gem 'rest-client'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -36,6 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -54,6 +56,7 @@ group :development, :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'database_cleaner', '~> 1.4.1'
+  gem 'dotenv-rails'
 end
 
 group :production do
