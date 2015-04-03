@@ -21,36 +21,21 @@
 </div>
 
 <div class="col-xs-5">
-  <div class="comments">
+  <div id="comments">
     <% if @post.comments.length == 1 %>
       <h5>There is 1 comment.</h5>
     <% else %>
       <h5>There are <%= @post.comments.length %> comments.</h5>
     <% end %>
-    <% @post.comments.sort_by(&:created_at).each do |comment| %>
-      <div class="comment">
-        <div class="row post-details">
-          <div class="post-date col-xs-6">
-            <p><em><%= comment.user.username %></em> | <%= comment.created_at.to_date %></p>
-          </div>
-          <% if @post.user == current_user %>
-            <div class="text-right post-tools col-xs-6">
-              <ul class="list-unstyled list-inline">
-                <li><%= link_to "Edit", edit_post_comment_path(@post, comment) %></li>
-                <li><%= link_to "Delete", post_comment_path(@post, comment), data: {confirm: "Are you sure?", method: "delete" } %></li>
-              </ul>
-            </div>
-          <% end %>
-        </div>
-        <%= comment.body %>
-      </div>
+
+    <%= render @post.comments.sort_by(&:created_at) %>
+  </div>
+
+  <div id="add-comment">
+    <% if user_signed_in? %>
+      <%= link_to "Add comment", new_post_comment_path(@post), remote: true %>
+    <% else %>
+      <%= link_to "Login to comment", new_user_session_path %>
     <% end %>
   </div>
-  <% if user_signed_in? %>
-    <div class="new-comment">
-      <%= link_to "Add comment", new_post_comment_path(@post) %>
-    </div>
-  <% else %>
-      <%= link_to "Login to comment", new_user_session_path %>
-  <% end %>
 </div>

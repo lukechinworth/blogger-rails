@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require unobtrusive_flash
+//= require unobtrusive_flash_bootstrap
+//= require bootstrap-sprockets
+
+UnobtrusiveFlash.flashOptions['timeout'] = 3000;

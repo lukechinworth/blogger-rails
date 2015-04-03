@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
   def new
     @post = Post.find(params[:post_id])
     @comment = Comment.new
+    response do |format|
+      format.html { redirect_to post_path(@post) }
+      format.js
+    end
   end
 
   def create
@@ -11,7 +15,10 @@ class CommentsController < ApplicationController
     @comment.user_id = @user.id
     if @post.save
       flash[:notice] = "Comment posted."
-      redirect_to post_path(@post)
+      response do |format|
+        format.html { redirect_to post_path(@post) }
+        format.js
+      end
     else
       flash[:alert] = "Comment failed to post."
       redirect_to post_path(@post)
@@ -31,8 +38,9 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post)
     else
       flash[:alert] = "Comment failed to update."
-      redirect_to post_path(@post)
+      redirect_to :back
     end
+
   end
 
   def destroy

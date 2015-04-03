@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-describe "the edit a comment process" do
+describe "the edit a comment process", js: true do
   it "edits a comment" do
     user = FactoryGirl.create(:user)
     post = FactoryGirl.create(:post, user: user)
     comment = FactoryGirl.create(:comment, user: user, post: post)
     login_as(user, scope: :user)
     visit post_path(post)
-    within("div.comments") do
+    within("div#comments") do
       click_on 'Edit'
     end
-    fill_in 'Body', with: 'comment text (updated)'
+    fill_in 'body', with: 'comment text (updated)'
     click_on 'Post'
     expect(page).to have_content 'Comment updated'
   end
@@ -21,7 +21,7 @@ describe "the edit a comment process" do
     comment = FactoryGirl.create(:comment, user: user, post: post)
     login_as(user, scope: :user)
     visit post_path(post)
-    within("div.comments") do
+    within("div#comments") do
       click_on 'Edit'
     end
     fill_in 'Body', with: ''
